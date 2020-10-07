@@ -3,29 +3,107 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		165F883B2519C4BB00CFE992 /* MockExamMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F883A2519C4BB00CFE992 /* MockExamMenuController.swift */; };
+		165F883D2519CDFC00CFE992 /* MockExamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F883C2519CDFC00CFE992 /* MockExamController.swift */; };
+		165F88412519D0A200CFE992 /* KanjiMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F88402519D0A200CFE992 /* KanjiMockCategory.swift */; };
+		165F88432519D0BC00CFE992 /* KanjiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F88422519D0BC00CFE992 /* KanjiMock.swift */; };
+		165F88452519EFB500CFE992 /* VocabularyMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F88442519EFB500CFE992 /* VocabularyMockCategory.swift */; };
+		165F88472519EFC900CFE992 /* VocabularyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F88462519EFC900CFE992 /* VocabularyMock.swift */; };
+		165F8849251A141E00CFE992 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165F8848251A141E00CFE992 /* Colors.xcassets */; };
+		1660EA7B250F46A8001CA5D7 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660EA7A250F46A8001CA5D7 /* SectionHeader.swift */; };
+		1660EA7D250F5566001CA5D7 /* FlashCardMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660EA7C250F5566001CA5D7 /* FlashCardMenuController.swift */; };
+		1660EA7F250F6651001CA5D7 /* QuizMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660EA7E250F6651001CA5D7 /* QuizMenuController.swift */; };
+		1660EA81250F6A84001CA5D7 /* QuizController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660EA80250F6A84001CA5D7 /* QuizController.swift */; };
+		16628FE625108AF100769C56 /* VocabularyCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16628FE525108AF100769C56 /* VocabularyCategory.swift */; };
+		16628FE825108B1200769C56 /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16628FE725108B1200769C56 /* Vocabulary.swift */; };
+		16628FEA2510AAD800769C56 /* QuizResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16628FE92510AAD800769C56 /* QuizResultController.swift */; };
+		16650AFC25133B31002726A1 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AF725133B2E002726A1 /* Quicksand-Regular.ttf */; };
+		16650AFD25133B31002726A1 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AF825133B2F002726A1 /* Quicksand-Bold.ttf */; };
+		16650AFE25133B31002726A1 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AF925133B30002726A1 /* Quicksand-Light.ttf */; };
+		16650AFF25133B31002726A1 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AFA25133B30002726A1 /* Quicksand-SemiBold.ttf */; };
+		16650B0025133B31002726A1 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AFB25133B31002726A1 /* Quicksand-Medium.ttf */; };
+		16650B0225134BED002726A1 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16650B0125134BED002726A1 /* Sounds.xcassets */; };
+		1666E6802528561C003EDBC0 /* N5Seed_bkk.realm in Resources */ = {isa = PBXBuildFile; fileRef = 1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */; };
+		166CE708252B068500E70477 /* N5Seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 166CE707252B068400E70477 /* N5Seed.realm */; };
+		166FC8502521B83900F6F30E /* GrammarMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC84F2521B83900F6F30E /* GrammarMockCategory.swift */; };
+		166FC8522521B85E00F6F30E /* GrammarMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8512521B85E00F6F30E /* GrammarMock.swift */; };
+		166FC8542521CDCF00F6F30E /* KanjiQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8532521CDCF00F6F30E /* KanjiQuiz.swift */; };
+		166FC8562521D1CF00F6F30E /* KanjiQuizMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8552521D1CF00F6F30E /* KanjiQuizMode.swift */; };
+		166FC8582523143200F6F30E /* GrammarCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8572523143100F6F30E /* GrammarCategory.swift */; };
+		166FC85A2523176000F6F30E /* GrammarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8592523176000F6F30E /* GrammarList.swift */; };
+		166FC85C252317BD00F6F30E /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC85B252317BD00F6F30E /* Conjugation.swift */; };
+		16787FCB252D8C98002C5E44 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCA252D8C98002C5E44 /* Counters.swift */; };
+		16787FCF252DAA9D002C5E44 /* GrammarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */; };
+		1678A2712527143C00EA14D0 /* KanjiMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */; };
+		167A3BE82525E8DD00D4AD53 /* N5Seed_bk.realm in Resources */ = {isa = PBXBuildFile; fileRef = 167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */; };
+		167AAA402511D8440051BAB1 /* KanjiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */; };
+		167AAA422511D8720051BAB1 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA412511D8720051BAB1 /* Kanji.swift */; };
+		167AAA482511E5F70051BAB1 /* FlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA472511E5F70051BAB1 /* FlashcardController.swift */; };
+		167AAA4A251210600051BAB1 /* ListMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA49251210600051BAB1 /* ListMenuController.swift */; };
+		167AAA4C251210710051BAB1 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA4B251210710051BAB1 /* ListController.swift */; };
 		16A9BE642506030900BA1A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9BE632506030900BA1A09 /* AppDelegate.swift */; };
 		16A9BE662506030900BA1A09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9BE652506030900BA1A09 /* SceneDelegate.swift */; };
-		16A9BE682506030900BA1A09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9BE672506030900BA1A09 /* ViewController.swift */; };
+		16A9BE682506030900BA1A09 /* TopMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9BE672506030900BA1A09 /* TopMenuController.swift */; };
 		16A9BE6B2506030900BA1A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE692506030900BA1A09 /* Main.storyboard */; };
 		16A9BE6D2506031000BA1A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE6C2506031000BA1A09 /* Assets.xcassets */; };
 		16A9BE702506031000BA1A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE6E2506031000BA1A09 /* LaunchScreen.storyboard */; };
-		16A9BE78250603D900BA1A09 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9BE77250603D900BA1A09 /* SecondViewController.swift */; };
+		BF19C14340575410CA3E965C /* Pods_JLPTN5_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85D17250A68821C245EB2B9 /* Pods_JLPTN5_Study.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		165F883A2519C4BB00CFE992 /* MockExamMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamMenuController.swift; sourceTree = "<group>"; };
+		165F883C2519CDFC00CFE992 /* MockExamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamController.swift; sourceTree = "<group>"; };
+		165F88402519D0A200CFE992 /* KanjiMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KanjiMockCategory.swift; path = "/Users/naoyaono/Documents/JLPTN5 Study/JLPTN5 Study/Model/KanjiMockCategory.swift"; sourceTree = "<absolute>"; };
+		165F88422519D0BC00CFE992 /* KanjiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiMock.swift; sourceTree = "<group>"; };
+		165F88442519EFB500CFE992 /* VocabularyMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyMockCategory.swift; sourceTree = "<group>"; };
+		165F88462519EFC900CFE992 /* VocabularyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyMock.swift; sourceTree = "<group>"; };
+		165F8848251A141E00CFE992 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1660EA7A250F46A8001CA5D7 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		1660EA7C250F5566001CA5D7 /* FlashCardMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardMenuController.swift; sourceTree = "<group>"; };
+		1660EA7E250F6651001CA5D7 /* QuizMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMenuController.swift; sourceTree = "<group>"; };
+		1660EA80250F6A84001CA5D7 /* QuizController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizController.swift; sourceTree = "<group>"; };
+		16628FE525108AF100769C56 /* VocabularyCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCategory.swift; sourceTree = "<group>"; };
+		16628FE725108B1200769C56 /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
+		16628FE92510AAD800769C56 /* QuizResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultController.swift; sourceTree = "<group>"; };
+		16650AF725133B2E002726A1 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		16650AF825133B2F002726A1 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		16650AF925133B30002726A1 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		16650AFA25133B30002726A1 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		16650AFB25133B31002726A1 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		16650B0125134BED002726A1 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
+		1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed_bkk.realm; sourceTree = "<group>"; };
+		166CE707252B068400E70477 /* N5Seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed.realm; sourceTree = "<group>"; };
+		166FC84F2521B83900F6F30E /* GrammarMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarMockCategory.swift; sourceTree = "<group>"; };
+		166FC8512521B85E00F6F30E /* GrammarMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarMock.swift; sourceTree = "<group>"; };
+		166FC8532521CDCF00F6F30E /* KanjiQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuiz.swift; sourceTree = "<group>"; };
+		166FC8552521D1CF00F6F30E /* KanjiQuizMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuizMode.swift; sourceTree = "<group>"; };
+		166FC8572523143100F6F30E /* GrammarCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarCategory.swift; sourceTree = "<group>"; };
+		166FC8592523176000F6F30E /* GrammarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarList.swift; sourceTree = "<group>"; };
+		166FC85B252317BD00F6F30E /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
+		16787FCA252D8C98002C5E44 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
+		16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarHeader.swift; sourceTree = "<group>"; };
+		1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KanjiMockCategory.swift; path = "/Users/naoyaono/Documents/JLPTN5 Study/JLPTN5 Study/Model/KanjiMockCategory.swift"; sourceTree = "<absolute>"; };
+		167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed_bk.realm; sourceTree = "<group>"; };
+		167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiCategory.swift; sourceTree = "<group>"; };
+		167AAA412511D8720051BAB1 /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		167AAA472511E5F70051BAB1 /* FlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardController.swift; sourceTree = "<group>"; };
+		167AAA49251210600051BAB1 /* ListMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMenuController.swift; sourceTree = "<group>"; };
+		167AAA4B251210710051BAB1 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		16A9BE602506030900BA1A09 /* JLPTN5 Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JLPTN5 Study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16A9BE632506030900BA1A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16A9BE652506030900BA1A09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		16A9BE672506030900BA1A09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16A9BE672506030900BA1A09 /* TopMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuController.swift; sourceTree = "<group>"; };
 		16A9BE6A2506030900BA1A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		16A9BE6C2506031000BA1A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16A9BE6F2506031000BA1A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16A9BE712506031000BA1A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16A9BE77250603D900BA1A09 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		53543D4C21AD6ACB6F713C68 /* Pods-JLPTN5 Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLPTN5 Study.release.xcconfig"; path = "Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study.release.xcconfig"; sourceTree = "<group>"; };
+		55A918F3A6DC2B26E5ACC3EA /* Pods-JLPTN5 Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLPTN5 Study.debug.xcconfig"; path = "Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study.debug.xcconfig"; sourceTree = "<group>"; };
+		D85D17250A68821C245EB2B9 /* Pods_JLPTN5_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLPTN5_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +111,93 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF19C14340575410CA3E965C /* Pods_JLPTN5_Study.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1660EA77250F3919001CA5D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16A9BE692506030900BA1A09 /* Main.storyboard */,
+				1660EA7A250F46A8001CA5D7 /* SectionHeader.swift */,
+				16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1660EA78250F3930001CA5D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16A9BE672506030900BA1A09 /* TopMenuController.swift */,
+				1660EA7C250F5566001CA5D7 /* FlashCardMenuController.swift */,
+				167AAA472511E5F70051BAB1 /* FlashcardController.swift */,
+				1660EA7E250F6651001CA5D7 /* QuizMenuController.swift */,
+				1660EA80250F6A84001CA5D7 /* QuizController.swift */,
+				16628FE92510AAD800769C56 /* QuizResultController.swift */,
+				167AAA49251210600051BAB1 /* ListMenuController.swift */,
+				167AAA4B251210710051BAB1 /* ListController.swift */,
+				165F883A2519C4BB00CFE992 /* MockExamMenuController.swift */,
+				165F883C2519CDFC00CFE992 /* MockExamController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1660EA79250F3945001CA5D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				16628FE525108AF100769C56 /* VocabularyCategory.swift */,
+				16628FE725108B1200769C56 /* Vocabulary.swift */,
+				167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */,
+				167AAA412511D8720051BAB1 /* Kanji.swift */,
+				166FC8552521D1CF00F6F30E /* KanjiQuizMode.swift */,
+				1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */,
+				166FC8532521CDCF00F6F30E /* KanjiQuiz.swift */,
+				165F88402519D0A200CFE992 /* KanjiMockCategory.swift */,
+				165F88422519D0BC00CFE992 /* KanjiMock.swift */,
+				165F88442519EFB500CFE992 /* VocabularyMockCategory.swift */,
+				165F88462519EFC900CFE992 /* VocabularyMock.swift */,
+				166FC8572523143100F6F30E /* GrammarCategory.swift */,
+				166FC8592523176000F6F30E /* GrammarList.swift */,
+				166FC85B252317BD00F6F30E /* Conjugation.swift */,
+				16787FCA252D8C98002C5E44 /* Counters.swift */,
+				166FC84F2521B83900F6F30E /* GrammarMockCategory.swift */,
+				166FC8512521B85E00F6F30E /* GrammarMock.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		16650AF625133AD9002726A1 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				16650AF825133B2F002726A1 /* Quicksand-Bold.ttf */,
+				16650AF925133B30002726A1 /* Quicksand-Light.ttf */,
+				16650AFB25133B31002726A1 /* Quicksand-Medium.ttf */,
+				16650AF725133B2E002726A1 /* Quicksand-Regular.ttf */,
+				16650AFA25133B30002726A1 /* Quicksand-SemiBold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		167A3BE62525E8C100D4AD53 /* Seed */ = {
+			isa = PBXGroup;
+			children = (
+				166CE707252B068400E70477 /* N5Seed.realm */,
+				167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */,
+				1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */,
+			);
+			path = Seed;
+			sourceTree = "<group>";
+		};
 		16A9BE572506030900BA1A09 = {
 			isa = PBXGroup;
 			children = (
 				16A9BE622506030900BA1A09 /* JLPTN5 Study */,
 				16A9BE612506030900BA1A09 /* Products */,
+				61DD6B5FF2E934AB51421168 /* Pods */,
+				75C77225840551EDF2BCD9F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +214,35 @@
 			children = (
 				16A9BE632506030900BA1A09 /* AppDelegate.swift */,
 				16A9BE652506030900BA1A09 /* SceneDelegate.swift */,
-				16A9BE672506030900BA1A09 /* ViewController.swift */,
-				16A9BE77250603D900BA1A09 /* SecondViewController.swift */,
-				16A9BE692506030900BA1A09 /* Main.storyboard */,
+				167A3BE62525E8C100D4AD53 /* Seed */,
+				16650AF625133AD9002726A1 /* fonts */,
+				1660EA79250F3945001CA5D7 /* Model */,
+				1660EA78250F3930001CA5D7 /* Controller */,
+				1660EA77250F3919001CA5D7 /* View */,
 				16A9BE6C2506031000BA1A09 /* Assets.xcassets */,
+				16650B0125134BED002726A1 /* Sounds.xcassets */,
+				165F8848251A141E00CFE992 /* Colors.xcassets */,
 				16A9BE6E2506031000BA1A09 /* LaunchScreen.storyboard */,
 				16A9BE712506031000BA1A09 /* Info.plist */,
 			);
 			path = "JLPTN5 Study";
+			sourceTree = "<group>";
+		};
+		61DD6B5FF2E934AB51421168 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55A918F3A6DC2B26E5ACC3EA /* Pods-JLPTN5 Study.debug.xcconfig */,
+				53543D4C21AD6ACB6F713C68 /* Pods-JLPTN5 Study.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		75C77225840551EDF2BCD9F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D85D17250A68821C245EB2B9 /* Pods_JLPTN5_Study.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16A9BE742506031000BA1A09 /* Build configuration list for PBXNativeTarget "JLPTN5 Study" */;
 			buildPhases = (
+				BF0F3621861B187134D3741C /* [CP] Check Pods Manifest.lock */,
 				16A9BE5C2506030900BA1A09 /* Sources */,
 				16A9BE5D2506030900BA1A09 /* Frameworks */,
 				16A9BE5E2506030900BA1A09 /* Resources */,
+				5D289320802C01D2B62FA6B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,22 +306,101 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A9BE702506031000BA1A09 /* LaunchScreen.storyboard in Resources */,
+				16650B0225134BED002726A1 /* Sounds.xcassets in Resources */,
+				16650B0025133B31002726A1 /* Quicksand-Medium.ttf in Resources */,
 				16A9BE6D2506031000BA1A09 /* Assets.xcassets in Resources */,
 				16A9BE6B2506030900BA1A09 /* Main.storyboard in Resources */,
+				1666E6802528561C003EDBC0 /* N5Seed_bkk.realm in Resources */,
+				165F8849251A141E00CFE992 /* Colors.xcassets in Resources */,
+				16650AFE25133B31002726A1 /* Quicksand-Light.ttf in Resources */,
+				167A3BE82525E8DD00D4AD53 /* N5Seed_bk.realm in Resources */,
+				166CE708252B068500E70477 /* N5Seed.realm in Resources */,
+				16650AFC25133B31002726A1 /* Quicksand-Regular.ttf in Resources */,
+				16650AFF25133B31002726A1 /* Quicksand-SemiBold.ttf in Resources */,
+				16650AFD25133B31002726A1 /* Quicksand-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D289320802C01D2B62FA6B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF0F3621861B187134D3741C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLPTN5 Study-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		16A9BE5C2506030900BA1A09 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A9BE78250603D900BA1A09 /* SecondViewController.swift in Sources */,
-				16A9BE682506030900BA1A09 /* ViewController.swift in Sources */,
+				166FC85A2523176000F6F30E /* GrammarList.swift in Sources */,
+				165F88432519D0BC00CFE992 /* KanjiMock.swift in Sources */,
+				167AAA402511D8440051BAB1 /* KanjiCategory.swift in Sources */,
+				1660EA81250F6A84001CA5D7 /* QuizController.swift in Sources */,
+				16787FCB252D8C98002C5E44 /* Counters.swift in Sources */,
+				16628FE625108AF100769C56 /* VocabularyCategory.swift in Sources */,
+				166FC8522521B85E00F6F30E /* GrammarMock.swift in Sources */,
+				16628FE825108B1200769C56 /* Vocabulary.swift in Sources */,
+				167AAA4A251210600051BAB1 /* ListMenuController.swift in Sources */,
+				165F883B2519C4BB00CFE992 /* MockExamMenuController.swift in Sources */,
+				166FC8542521CDCF00F6F30E /* KanjiQuiz.swift in Sources */,
+				165F88452519EFB500CFE992 /* VocabularyMockCategory.swift in Sources */,
+				167AAA482511E5F70051BAB1 /* FlashcardController.swift in Sources */,
+				1660EA7B250F46A8001CA5D7 /* SectionHeader.swift in Sources */,
+				16787FCF252DAA9D002C5E44 /* GrammarHeader.swift in Sources */,
+				166FC85C252317BD00F6F30E /* Conjugation.swift in Sources */,
+				165F88472519EFC900CFE992 /* VocabularyMock.swift in Sources */,
+				165F883D2519CDFC00CFE992 /* MockExamController.swift in Sources */,
+				16A9BE682506030900BA1A09 /* TopMenuController.swift in Sources */,
+				1660EA7D250F5566001CA5D7 /* FlashCardMenuController.swift in Sources */,
+				165F88412519D0A200CFE992 /* KanjiMockCategory.swift in Sources */,
 				16A9BE642506030900BA1A09 /* AppDelegate.swift in Sources */,
 				16A9BE662506030900BA1A09 /* SceneDelegate.swift in Sources */,
+				166FC8502521B83900F6F30E /* GrammarMockCategory.swift in Sources */,
+				167AAA4C251210710051BAB1 /* ListController.swift in Sources */,
+				166FC8582523143200F6F30E /* GrammarCategory.swift in Sources */,
+				1660EA7F250F6651001CA5D7 /* QuizMenuController.swift in Sources */,
+				1678A2712527143C00EA14D0 /* KanjiMockCategory.swift in Sources */,
+				16628FEA2510AAD800769C56 /* QuizResultController.swift in Sources */,
+				166FC8562521D1CF00F6F30E /* KanjiQuizMode.swift in Sources */,
+				167AAA422511D8720051BAB1 /* Kanji.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,11 +542,13 @@
 		};
 		16A9BE752506031000BA1A09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55A918F3A6DC2B26E5ACC3EA /* Pods-JLPTN5 Study.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +562,13 @@
 		};
 		16A9BE762506031000BA1A09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53543D4C21AD6ACB6F713C68 /* Pods-JLPTN5 Study.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
