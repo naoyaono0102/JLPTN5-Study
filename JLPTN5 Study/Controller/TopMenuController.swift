@@ -28,7 +28,7 @@ class TopMenuController: UIViewController {
     
     // クイズのタイプ（語彙・漢字）
     private var type: Int? // 0：語彙、1：漢字、2：文法
-        
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
@@ -52,30 +52,30 @@ class TopMenuController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      loadBannerAd()
+        super.viewDidAppear(animated)
+        loadBannerAd()
     }
-
+    
     override func viewWillTransition(to size: CGSize,
-                            with coordinator: UIViewControllerTransitionCoordinator) {
-      super.viewWillTransition(to:size, with:coordinator)
-      coordinator.animate(alongsideTransition: { _ in
-        self.loadBannerAd()
-      })
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to:size, with:coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.loadBannerAd()
+        })
     }
     
     func loadBannerAd() {
-      let frame = { () -> CGRect in
-        if #available(iOS 11.0, *) {
-          return view.frame.inset(by: view.safeAreaInsets)
-        } else {
-          return view.frame
-        }
-      }()
-      let viewWidth = frame.size.width
-
-      bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-      bannerView.load(GADRequest())
+        let frame = { () -> CGRect in
+            if #available(iOS 11.0, *) {
+                return view.frame.inset(by: view.safeAreaInsets)
+            } else {
+                return view.frame
+            }
+        }()
+        let viewWidth = frame.size.width
+        
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView.load(GADRequest())
     }
     
 }
@@ -136,7 +136,7 @@ extension TopMenuController: UICollectionViewDataSource {
         // セルに枠線をセット
         cell.layer.cornerRadius = 10
         cell.backgroundColor = UIColor(named: "MenuButtonColor")
-                
+        
         // 影をセット
         cell.layer.masksToBounds = false // 溢れる分を表示
         cell.layer.shadowColor = UIColor.black.cgColor //　影の色
@@ -194,7 +194,7 @@ extension TopMenuController: UICollectionViewDelegate {
                 
                 // カテゴリーチェック
                 self.typeCheck(indexPath.section)
-
+                
                 if self.type == 2 {
                     // 画面遷移
                     if indexPath.row == 0 {
@@ -224,7 +224,7 @@ extension TopMenuController: UICollectionViewDelegate {
     func typeCheck(_ section: Int){
         if section == 0 {
             self.type = 0 // 語彙
-
+            
         } else if section == 1 {
             self.type = 1 // 漢字
         } else if section == 2 {

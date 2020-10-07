@@ -27,11 +27,11 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     
     // 表示するセクション
     let sectionLabels: [String] = ["", "Verb Conjugation", "Counters"]
-        
+    
     // カテゴリー一覧
     var vocabularyCategories: Results<VocabularyCategory>?
     var kanjiCategories: Results<KanjiCategory>?
-//    var grammarCategories: Results<GrammarCategory>?
+    //    var grammarCategories: Results<GrammarCategory>?
     var grammarCategories: [Results<GrammarCategory>]?
     
     // 編集用モーダル
@@ -43,7 +43,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var RandomButton: UIButton!
     
     
-     var interstitial: GADInterstitial!
+    var interstitial: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     
     // インタースティシャル広告を作成し読み込む
     func createAndLoadInterstitial() -> GADInterstitial {
-
+        
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         interstitial.delegate = self
         interstitial.load(GADRequest())
@@ -76,13 +76,13 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     
     // 広告をクリックして開いた画面を閉じた直後に呼ばれる
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-
+        
         // 新たな広告を作成し読み込む
         interstitial = createAndLoadInterstitial()
     }
     
     func initView(){
-                
+        
         // ナビゲーションの設定
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // 戻るボタンのテキストを消す
         self.navigationController?.view.addSubview(self.coverView) // カバー
@@ -107,7 +107,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
         else if self.type == 2 {
             modalButtonTop.setTitle("From masu from", for: .normal)
             modalButtonBottom.setTitle("From dictionary form", for: .normal)
-                        
+            
             RandomButtonView.isHidden = true // ランダムボタンを非表示
             title = "Grammar Flashcards"
         }
@@ -115,10 +115,10 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
         coverView.frame = CGRect(x : 0, y : 0, width : self.view.frame.width, height :  self.view.frame.height)
         coverView.center = self.view.center
         modalView.center = self.view.center
-                
+        
         // セルに枠線をセット
         RandomButton.layer.cornerRadius = 25
-                        
+        
         // 影をセット
         RandomButton.layer.shadowColor = UIColor.black.cgColor //　影の色
         RandomButton.layer.shadowOpacity = 0.2  //影の濃さ
@@ -131,14 +131,14 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
         let realm = try! Realm()
         
         if type == 0 {
-            print("語彙を取得")
+            // 語彙
             vocabularyCategories = realm.objects(VocabularyCategory.self).sorted(byKeyPath: "order", ascending: true)
             
         } else if type == 1 {
-            print("漢字を取得")
+            // 漢字
             kanjiCategories = realm.objects(KanjiCategory.self).sorted(byKeyPath: "order", ascending: true)
         } else if type == 2 {
-            print("文法を取得")
+            // 文法
             let grammarCategories = realm.objects(GrammarCategory.self).sorted(byKeyPath: "order", ascending: true)
             let conjugations = grammarCategories.filter("type == 0")
             let patterns = grammarCategories.filter("type == 1")
@@ -159,7 +159,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
             self.modalButtonBottom.isHidden = false
         }
     }
-        
+    
     // モーダルの上のボタンがクリックされた時
     @IBAction func modalButtonTopPressed(_ sender: UIButton) {
         coverView.isHidden = true
@@ -177,7 +177,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
         self.quizMode = 1
         
         showInterstitialAd()
-
+        
         // フラッシュカード画面へ遷移
         self.performSegue(withIdentifier: "goToFlashCardPage", sender: nil)
     }
@@ -185,7 +185,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     // 広告表示（表示準備ができていれば）
     func showInterstitialAd() {
         if interstitial.isReady {
-          interstitial.present(fromRootViewController: self)
+            interstitial.present(fromRootViewController: self)
         }
     }
     
@@ -210,12 +210,12 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
                     destioantionVC.category = vocabularyCategories![tappedCellNumber!].name
                 }else {
                     destioantionVC.category = "Random"
-                                        
+                    
                     // すべての単語を取得
-                    var list = List<Vocabulary>()
+                    let list = List<Vocabulary>()
                     for vocabularyCategory in vocabularyCategories! {
                         for vocabulary in vocabularyCategory.items {
-                                list.append(vocabulary)
+                            list.append(vocabulary)
                         }
                     }
                     destioantionVC.vocabularyList = list
@@ -226,12 +226,12 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
                     destioantionVC.category = kanjiCategories![tappedCellNumber!].name
                 } else {
                     destioantionVC.category = "Random"
-                                        
+                    
                     // すべての漢字を取得
-                    var list = List<Kanji>()
+                    let list = List<Kanji>()
                     for kanjiCategory in kanjiCategories! {
                         for kanji in kanjiCategory.items {
-                                list.append(kanji)
+                            list.append(kanji)
                         }
                     }
                     destioantionVC.kanjiList = list
@@ -239,7 +239,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
             case 2:
                 destioantionVC.category = grammarCategories?[tappedSectionNumber!][tappedCellNumber!].name
                 destioantionVC.grammarType = grammarCategories?[tappedSectionNumber!][tappedCellNumber!].type
-
+                
             default:
                 print("該当無し")
             }
@@ -305,15 +305,13 @@ extension FlashCardMenuController: UICollectionViewDataSource {
     
     // セルに値をセット
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("セルに値をセット")
-        print(indexPath)
         // widthReuseIdentifierにはStoryboardで設定したセルのIDを指定
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlashCardMenuCell", for: indexPath)
         
         // セルのラベルに値をセット
         let title = cell.contentView.viewWithTag(1) as! UILabel
         title.adjustsFontSizeToFitWidth = true
-
+        
         switch self.type {
         case 0:
             title.text = vocabularyCategories?[indexPath.row].name ?? "No name"
@@ -341,19 +339,19 @@ extension FlashCardMenuController: UICollectionViewDataSource {
     
     // ヘッダーの設定
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-      // 1. ヘッダーセクションを作成
-      guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GrammarHeader", for: indexPath) as? GrammarHeader else {
-        fatalError("ヘッダーがありません")
-      }
-
-     // 2. ヘッダーセクションのラベルにテキストをセット
-     if kind == UICollectionView.elementKindSectionHeader {
-       header.grammarHeader.text = sectionLabels[indexPath.section]
-       return header
-    }
-
-     return UICollectionReusableView()
+        
+        // 1. ヘッダーセクションを作成
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "GrammarHeader", for: indexPath) as? GrammarHeader else {
+            fatalError("ヘッダーがありません")
+        }
+        
+        // 2. ヘッダーセクションのラベルにテキストをセット
+        if kind == UICollectionView.elementKindSectionHeader {
+            header.grammarHeader.text = sectionLabels[indexPath.section]
+            return header
+        }
+        
+        return UICollectionReusableView()
     }
 }
 
@@ -365,16 +363,16 @@ extension FlashCardMenuController: UICollectionViewDelegate {
         //タップされたセクション・セル番号を保持
         self.tappedSectionNumber = indexPath.section
         self.tappedCellNumber = indexPath.row
-
+        
         // ボタンの設定
         if self.type == 2 {
             switch self.grammarCategories?[indexPath.section][indexPath.row].name {
             case "masu form":
-                print("masuFromなのでボタンを１つに")
+                // masuFromなのでボタンを１つに
                 self.modalButtonTop.setTitle("Start", for: .normal)
                 self.modalButtonBottom.isHidden = true
             case "dictionary form":
-                print("jishoFormなのでボタンを１つに")
+                // jishoFormなのでボタンを１つに
                 self.modalButtonTop.setTitle("Start", for: .normal)
                 self.modalButtonBottom.isHidden = true
             default:
@@ -382,7 +380,6 @@ extension FlashCardMenuController: UICollectionViewDelegate {
                     self.modalButtonTop.setTitle("English ▶︎ Japanese", for: .normal)
                     self.modalButtonBottom.setTitle("Japanese ▶︎ English", for: .normal)
                 } else {
-                    print("その他")
                     self.modalButtonTop.setTitle("From masu form", for: .normal)
                     self.modalButtonBottom.setTitle("From dictionary form", for: .normal)
                 }
@@ -412,28 +409,6 @@ extension FlashCardMenuController: UICollectionViewDelegate {
                 
                 // モーダルを表示
                 self.coverView.isHidden = false
-                
-                //                // 文法問題の場合のボタン名をセット
-                //                if self.type == 2 {
-                //                    switch self.grammarCategories![indexPath.row].name {
-                //                    case "masu form":
-                //                        print("masuFromなのでボタンを１つに")
-                //                        self.modalButtonTop.setTitle("Start", for: .normal)
-                //                        self.modalButtonBottom.isHidden = true
-                //                    case "dictionary form":
-                //                        print("jishoFormなのでボタンを１つに")
-                //                        self.modalButtonTop.setTitle("Start", for: .normal)
-                //                        self.modalButtonBottom.isHidden = true
-                //                    case "Grammar patterns":
-                //                        print("Grammar patterns関連のボタン名に")
-                //                        self.modalButtonTop.setTitle("English ▶︎ Japanese", for: .normal)
-                //                        self.modalButtonBottom.setTitle("Japanese ▶︎ English", for: .normal)
-                //                    default:
-                //                        print("その他")
-                //                        self.modalButtonTop.setTitle("From masu form", for: .normal)
-                //                        self.modalButtonBottom.setTitle("From dictionary form", for: .normal)
-                //                    }
-                //                }
             }
         }
     }

@@ -23,7 +23,7 @@ class MockExamController: UIViewController {
     // 文法
     // -- part1：20問 / 20秒
     // -- part2：5問 / 1分
-
+    
     //前の画面から受け取る値
     var type: Int? // クイズの種類（語彙 or 漢字）
     var part: Int? // part（1 or 2）
@@ -52,7 +52,7 @@ class MockExamController: UIViewController {
     var audioPlayer: AVAudioPlayer! // 音声出力用
     private var isTimerAcctive: Bool = true // タイマーのON / OFF
     var userChoices = [String]()  // ユーザーが選んだ答え
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,6 @@ class MockExamController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("クイズを開始します")
         
         // 枠から文字が飛び出さないように
         questionLabel.adjustsFontSizeToFitWidth = true
@@ -112,40 +111,38 @@ class MockExamController: UIViewController {
     
     // バナー広告読み込み
     override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      loadBannerAd()
+        super.viewDidAppear(animated)
+        loadBannerAd()
     }
     
     override func viewWillTransition(to size: CGSize,
-                            with coordinator: UIViewControllerTransitionCoordinator) {
-      super.viewWillTransition(to:size, with:coordinator)
-      coordinator.animate(alongsideTransition: { _ in
-        self.loadBannerAd()
-      })
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to:size, with:coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.loadBannerAd()
+        })
     }
     
     func loadBannerAd() {
-      let frame = { () -> CGRect in
-        if #available(iOS 11.0, *) {
-          return view.frame.inset(by: view.safeAreaInsets)
-        } else {
-          return view.frame
-        }
-      }()
-      let viewWidth = frame.size.width
-
-      bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-      bannerView.load(GADRequest())
-    }
+        let frame = { () -> CGRect in
+            if #available(iOS 11.0, *) {
+                return view.frame.inset(by: view.safeAreaInsets)
+            } else {
+                return view.frame
+            }
+        }()
+        let viewWidth = frame.size.width
         
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView.load(GADRequest())
+    }
+    
     func createQuiz() {
-        print("クイズを作成します")        
         let realm = try! Realm()
-                
+        
         // 問題を抽出
         if type == 0 {
             // 語彙
-            print("語彙問題を抽出")
             let vocabularyQuizPart = realm.objects(VocabularyMockCategory.self).filter("part = \(self.part!)").first
             
             var vocabularyQuizList = [VocabularyMock]()
@@ -167,26 +164,18 @@ class MockExamController: UIViewController {
             // 出題する問題を作成する（part1：20 / part2:10）
             //            for i in 0..<10 {
             for i in 0..<questionTotalNumber {
-                print(i)
-                
                 // シャッフル済みのリストから１問取得
                 let quiz = vocabularyQuizList[i]
-                print(quiz)
                 
                 questions.append(quiz.question) // 問題
                 answers.append(quiz.answer) // 答え
                 choices.append([quiz.answer, quiz.wrong1, quiz.wrong2, quiz.wrong3]) //選択肢
                 
                 //選択肢をシャッフル
-                print("シャッフル前")
-                print(choices[i])
                 choices[i].shuffle() // 選択肢をシャッフルする
-                print("シャッフル後")
-                print(choices[i])
-            }                                            
+            }
         } else if type == 1 {
             // 漢字テストを抽出
-            print("漢字問題を抽出")
             let kanjiQuizPart = realm.objects(KanjiMockCategory.self).filter("part = \(self.part!)").first
             
             var KanjiQuizList = [KanjiMock]()
@@ -196,29 +185,22 @@ class MockExamController: UIViewController {
             
             // 漢字リストをシャッフル
             KanjiQuizList.shuffle()
-                        
+            
             // 出題する問題を作成する（20問）
             for i in 0..<20 {
-                print(i)
                 
                 // シャッフル済みのリストから１問取得
                 let quiz = KanjiQuizList[i]
-                print(quiz)
                 
                 questions.append(quiz.question) // 問題
                 answers.append(quiz.answer) // 答え
                 choices.append([quiz.answer, quiz.wrong1, quiz.wrong2, quiz.wrong3]) //選択肢
                 
                 //選択肢をシャッフル
-                print("シャッフル前")
-                print(choices[i])
                 choices[i].shuffle() // 選択肢をシャッフルする
-                print("シャッフル後")
-                print(choices[i])
             }
         } else if type == 2 {
             // 語彙
-            print("文法問題を抽出")
             let grammarQuizPart = realm.objects(GrammarMockCategory.self).filter("part = \(self.part!)").first
             
             var grammarQuizList = [GrammarMock]()
@@ -239,30 +221,22 @@ class MockExamController: UIViewController {
             
             // 出題する問題を作成する（part1：20 / part2:5）
             for i in 0..<questionTotalNumber {
-                print(i)
                 
                 // シャッフル済みのリストから１問取得
                 let quiz = grammarQuizList[i]
-                print(quiz)
                 
                 questions.append(quiz.question) // 問題
                 answers.append(quiz.answer) // 答え
                 choices.append([quiz.answer, quiz.wrong1, quiz.wrong2, quiz.wrong3]) //選択肢
                 
                 //選択肢をシャッフル
-                print("シャッフル前")
-                print(choices[i])
                 choices[i].shuffle() // 選択肢をシャッフルする
-                print("シャッフル後")
-                print(choices[i])
             }
         }
     }
     
     // クイズ問題を画面にセットする
     @objc func setQuiz(){
-        print("クイズをセットします")
-        
         // ナビゲーションタイトルに問題番号をセット
         title = String(questionNumber + 1) + " / " + String(questions.count)
         
@@ -289,18 +263,18 @@ class MockExamController: UIViewController {
         answerButtonB.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
         answerButtonC.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
         answerButtonD.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
-
+        
         
         // ボタンの色を設定する
         answerButtonA.backgroundColor = UIColor(named: "quizButtonColor")
         answerButtonB.backgroundColor = UIColor(named: "quizButtonColor")
         answerButtonC.backgroundColor = UIColor(named: "quizButtonColor")
         answerButtonD.backgroundColor = UIColor(named: "quizButtonColor")
-
-
+        
+        
         // 問題をセット
         questionLabel.attributedText = NSAttributedString(string: questions[questionNumber], lineSpacing: 15.0, alignment: .left)
-
+        
         
         // 選択肢をセット
         answerButtonA.setTitle(choices[questionNumber][0], for:.normal)
@@ -342,11 +316,10 @@ class MockExamController: UIViewController {
                 timeLimitBar.progress -= 1/4000 // 40秒(1/4000)
             }
         }
-//        timeLimitBar.progress -= 0.001 // 10秒(1/1000)
-
+        //        timeLimitBar.progress -= 0.001 // 10秒(1/1000)
+        
         // 時間が0になったら
         if timeLimitBar.progress == 0.0 {
-            print("0秒になったのでタイマーを停止")
             self.timer?.invalidate() // タイマー停止
             
             self.userChoices.append("")
@@ -407,16 +380,15 @@ class MockExamController: UIViewController {
     }
     
     @IBAction func timerOnOffButtonPressde(_ sender: UIBarButtonItem) {
-        print("タイマーON / OFF切り替え")
         
         if self.isTimerAcctive {
-            print("タイマーを停止")
+            // タイマー停止
             self.timer?.invalidate()
             self.isTimerAcctive = false
             self.timeLimitToggle.image = UIImage(named: "play-icon")
             
         }else {
-            print("タイマーを起動")
+            // タイマー起動
             updateTimeLimit()
             self.isTimerAcctive = true
             self.timeLimitToggle.image = UIImage(named: "stop-icon")
@@ -435,7 +407,6 @@ class MockExamController: UIViewController {
         
         // 正解の場合
         if userAnswer == answers[questionNumber]{
-            print("正解")
             playSound(name: "correct_sound")
             
             // 正解画像を表示
@@ -477,7 +448,6 @@ class MockExamController: UIViewController {
             }
             
         } else {
-            print("不正解")
             playSound(name: "incorrect_sound")
             
             // 不正解の画像を表示
@@ -551,7 +521,6 @@ class MockExamController: UIViewController {
     
     // 結果ページへ移動
     @objc func moveResultPage(){
-        print("結果ページへ移動")
         performSegue(withIdentifier: "goToMockResultPage",sender: nil)
     }
     
@@ -571,13 +540,13 @@ class MockExamController: UIViewController {
             
             // ユーザーが選択した答え
             destioantionVC.userChoices = self.userChoices
-
+            
             // 正誤表
             destioantionVC.results = self.results
             
             // 正解数
             destioantionVC.correctCount = correctCount
-
+            
             // クイズの種類
             destioantionVC.quizType = 1 // Mock Exam
             
@@ -590,7 +559,7 @@ class MockExamController: UIViewController {
             list.removeAll()
             questions.removeAll()
             answers.removeAll()
-//            sounds.removeAll()
+            //            sounds.removeAll()
             choices.removeAll()
             results.removeAll()
             userChoices.removeAll()
@@ -603,8 +572,6 @@ extension MockExamController: AVAudioPlayerDelegate {
     
     // 音を鳴らす処理
     func playSound(name: String){
-        print("音を鳴らす処理")
-        
         // 音声ファイルの取得
         guard let soundFile = NSDataAsset(name: name) else {
             print("音源ファイルが見つかりません1")
@@ -622,7 +589,6 @@ extension MockExamController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is MockExamMenuController {
-            print("タイマー停止")
             // タイマーを停止
             self.timer?.invalidate()
         }

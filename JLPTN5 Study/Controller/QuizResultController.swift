@@ -106,7 +106,6 @@ class QuizResultController: UIViewController, GADInterstitialDelegate {
         scoreLabel.text =  String(correctCount) + " / " + String(numberOfQuestions)
         
         let score = Int(Float(correctCount)/Float(numberOfQuestions) * 10)
-        print(score)
         // スコア判定
         if quizType == 0 {
             switch score {
@@ -125,13 +124,11 @@ class QuizResultController: UIViewController, GADInterstitialDelegate {
             }
         }else {
             if score >= 7 {
-                print("合格")
                 messageLabel.text = "Pass!"
                 messageLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
                 messageLabel.textColor = UIColor(red: 73/255, green: 191/255, blue: 171/255, alpha: 1.0)
                 
             } else {
-                print("不合格")
                 messageLabel.text = "Fail!"
                 messageLabel.font = UIFont(name: "Quicksand-Bold", size: 20)
                 messageLabel.textColor = UIColor(red: 242/255, green: 130/255, blue: 130/255, alpha: 1.0)
@@ -153,7 +150,6 @@ class QuizResultController: UIViewController, GADInterstitialDelegate {
     
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        print("メニュー画面へ")
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
@@ -190,11 +186,10 @@ extension QuizResultController: UICollectionViewDataSource {
         
         questionTitle.text = "Q. " + questions[indexPath.row]
         answerTitle.text = "A. " + answers[indexPath.row]
-        userAnserTitle.text = "Your choice. " + userChoices[indexPath.row]
+        userAnserTitle.text = "Your answer. " + userChoices[indexPath.row]
         
         // 結果
         if results[indexPath.row] == 0 {
-            print("正解")
             resultLabel.text = "Good"
             resultLabel.textColor = UIColor(red: 123/255, green: 192/255, blue: 120/255, alpha: 1)
             
@@ -257,10 +252,7 @@ extension QuizResultController: UICollectionViewDelegate {
     //    }
     
     func soundPlay(_ name: String) {
-        
-        print(name)
-        
-        // ② 音楽ファイルを取得。ファイルがなければ以降の処理を中断
+        //  音楽ファイルを取得。ファイルがなければ以降の処理を中断
         guard let soundFile = NSDataAsset(name: name) else {
             print("Not Found")
             return
@@ -297,4 +289,3 @@ extension QuizResultController: UICollectionViewDelegateFlowLayout {
         return 20.0
     }
 }
-

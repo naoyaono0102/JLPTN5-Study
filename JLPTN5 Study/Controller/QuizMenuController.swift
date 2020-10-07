@@ -27,17 +27,17 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
     var vocabularyCategories: Results<VocabularyCategory>?
     var kanjiCategories: Results<KanjiCategory>?
     
-     var interstitial: GADInterstitial!
+    var interstitial: GADInterstitial!
     
     // 編集用モーダル（語彙）
     @IBOutlet var coverView: UIView!
     @IBOutlet weak var modalView: UIView!
     @IBOutlet weak var modalButtonTop: UIButton!
     @IBOutlet weak var modalButtonBottom: UIButton!
-            
+    
     @IBOutlet weak var RandomButton: UIButton!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,19 +56,19 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
         // タップしたセル番号の初期化（フラッシュカード画面から戻ってきた時に使う）
         tappedCellNumber = nil
     }
+    
+    // インタースティシャル広告を作成し読み込む
+    func createAndLoadInterstitial() -> GADInterstitial {
         
-     // インタースティシャル広告を作成し読み込む
-     func createAndLoadInterstitial() -> GADInterstitial {
-
-         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-         interstitial.delegate = self
-         interstitial.load(GADRequest())
-         return interstitial
-     }
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
+    }
     
     // 広告をクリックして開いた画面を閉じた直後に呼ばれる
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-
+        
         // ⑥ 新たな広告を作成し読み込む
         interstitial = createAndLoadInterstitial()
     }
@@ -79,7 +79,7 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // 戻るボタンのテキストを消す
         self.navigationController?.view.addSubview(self.coverView) // ナビゲーションの上にかぶせるカバー
         
-                
+        
         if self.type == 0 {
             // ボタンにテキストをセット
             modalButtonTop.setTitle("English ▶︎ Japanese", for: .normal)
@@ -99,16 +99,16 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
         coverView.frame = CGRect(x : 0, y : 0, width : self.view.frame.width, height : self.view.frame.height)
         coverView.center = self.view.center
         modalView.center = self.view.center
-
+        
         // セルに枠線をセット
         RandomButton.layer.cornerRadius = 25
-                        
+        
         // 影をセット
         RandomButton.layer.shadowColor = UIColor.black.cgColor //　影の色
         RandomButton.layer.shadowOpacity = 0.2  //影の濃さ
         RandomButton.layer.shadowRadius = 3.0 // 影のぼかし量
         RandomButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0) // 影の方向
-    
+        
     }
     
     // カテゴリー一覧を取得
@@ -116,11 +116,11 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
         let realm = try! Realm()
         
         if type == 0 {
-            print("語彙を取得")
+            // 語彙
             vocabularyCategories = realm.objects(VocabularyCategory.self).sorted(byKeyPath: "order", ascending: true)
             
         } else if type == 1 {
-            print("漢字を取得")
+            // 漢字
             kanjiCategories = realm.objects(KanjiCategory.self).sorted(byKeyPath: "order", ascending: true)
         }
     }
@@ -155,7 +155,7 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
     // 広告の表示準備ができていれば、表示する
     func showInterstitialAd(){
         if interstitial.isReady {
-          interstitial.present(fromRootViewController: self)
+            interstitial.present(fromRootViewController: self)
         }
     }
     
@@ -200,27 +200,27 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
             
             // クイズモードを渡す
             destioantionVC.quizMode = quizMode
-         
+            
             // タップされたカテゴリーの単語一覧を渡す
             switch self.type {
             case 0:
                 if tappedCellNumber != nil {
-                    print("語彙")
+                    // 語彙
                     destioantionVC.vocabularyList = vocabularyCategories![tappedCellNumber!].items
                 }else {
                     // すべての単語を取得
                     let list = List<Vocabulary>()
                     for vocabularyCategory in vocabularyCategories! {
                         for vocabulary in vocabularyCategory.items {
-                                list.append(vocabulary)
+                            list.append(vocabulary)
                         }
                     }
                     destioantionVC.vocabularyList = list
                 }
-
+                
             case 1:
                 if tappedCellNumber != nil {
-                    print("漢字")
+                    // 漢字
                     destioantionVC.kanjiList = kanjiCategories![tappedCellNumber!].quizModes[self.quizMode!].questions
                 }else {
                     // すべての漢字を取得
@@ -238,9 +238,9 @@ class QuizMenuController: UIViewController, GADInterstitialDelegate {
                 print("該当なし")
             }
             
-            }
         }
     }
+}
 
 
 extension QuizMenuController: UICollectionViewDataSource {
@@ -277,7 +277,7 @@ extension QuizMenuController: UICollectionViewDataSource {
         // セルに枠線をセット
         cell.layer.cornerRadius = 10
         cell.backgroundColor = UIColor(named: "MenuButtonColor")
-
+        
         // 影をセット
         cell.layer.masksToBounds = false // 溢れる分を表示
         cell.layer.shadowColor = UIColor.black.cgColor //　影の色

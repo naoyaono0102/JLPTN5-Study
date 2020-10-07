@@ -110,18 +110,15 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     
     // 文法データの取得
     func loadGrammarData(){
-        print("文法データを読み込みます")
-        
         let realm = try! Realm()
         
         if self.grammarType == 0 {
-            print("活用テーブルから抽出")
+            // 活用テーブルから取得
             let conjugationList = realm.objects(Conjugation.self)
             
             // リストに値をセット
             switch self.category {
             case "nai form":
-                print("nai form")
                 if quizMode == 0 {
                     for conjugation in conjugationList {
                         self.list.append([conjugation.masuForm, conjugation.naiForm, ""])
@@ -132,17 +129,14 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "masu form":
-                print("masu form")
                 for conjugation in conjugationList {
                     self.list.append([conjugation.jishoForm, conjugation.masuForm, ""])
                 }
             case "dictionary form":
-                print("dictioanry form")
                 for conjugation in conjugationList {
                     self.list.append([conjugation.masuForm, conjugation.jishoForm, ""])
                 }
             case "Te form":
-                print("te form")
                 if quizMode == 0 {
                     for conjugation in conjugationList {
                         self.list.append([conjugation.masuForm, conjugation.teForm, ""])
@@ -153,7 +147,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Ta form":
-                print("ta form")
                 if quizMode == 0 {
                     for conjugation in conjugationList {
                         self.list.append([conjugation.masuForm, conjugation.taForm, ""])
@@ -167,8 +160,7 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                 print("該当無し")
             }
         } else if self.grammarType == 1 {
-            print("文型リストから抽出")
-            
+            // 文型リストから抽出
             let grammarList = realm.objects(GrammarList.self)
             
             // リストに値をセット
@@ -182,14 +174,12 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                 }
             }
         } else if self.grammarType == 2 {
-            print("Countersから抽出")
-            
+            // Countersから抽出
             let counters = realm.objects(Counters.self)
             
             // リストに値をセット
             switch self.category {
             case "People":
-                print("People")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.people, ""])
@@ -200,7 +190,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Small Things":
-                print("Small Things")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.smallThings, ""])
@@ -211,7 +200,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Flat Things":
-                print("Flat Things")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.flatThings, ""])
@@ -222,7 +210,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Machines / Vehicles":
-                print("Machines / Vehicles")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.equipment, ""])
@@ -233,7 +220,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Long Things":
-                print("Long Things")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.longOThings, ""])
@@ -244,7 +230,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Age":
-                print("Age")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.age, ""])
@@ -255,7 +240,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
                     }
                 }
             case "Minutes":
-                print("Minutes")
                 if quizMode == 0 {
                     for counter in counters {
                         self.list.append([counter.english, counter.minutes, ""])
@@ -610,9 +594,6 @@ extension FlashcardController: KolodaViewDelegate {
         
         // 次のカード番号をセット
         cardNumber = index + 1
-        //        print("カード番号")
-        //        print(cardNumber)
-        //        print(totalCardNumber)
         
         // カードを表側にする（次のカードを表にするため）
         isFront = true
@@ -622,10 +603,7 @@ extension FlashcardController: KolodaViewDelegate {
         
         //最後の問題でなければ、 クイズ数を更新
         if cardNumber != totalCardNumber! {
-            print("一緒じゃない")
             self.updateQuizNumber()
-        }else {
-            print("一緒")
         }
         
         // undoボタンを活性化
@@ -636,8 +614,6 @@ extension FlashcardController: KolodaViewDelegate {
     
     // カードを全て消費したときの処理を定義する
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        print("Finish cards.")
-        
         // 結果ラベルに値をセット
         resultLabel.text = "You learned " + String(totalCardNumber!) + " words"
         

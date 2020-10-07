@@ -27,8 +27,6 @@
 		16650AFF25133B31002726A1 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AFA25133B30002726A1 /* Quicksand-SemiBold.ttf */; };
 		16650B0025133B31002726A1 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16650AFB25133B31002726A1 /* Quicksand-Medium.ttf */; };
 		16650B0225134BED002726A1 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16650B0125134BED002726A1 /* Sounds.xcassets */; };
-		1666E6802528561C003EDBC0 /* N5Seed_bkk.realm in Resources */ = {isa = PBXBuildFile; fileRef = 1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */; };
-		166CE708252B068500E70477 /* N5Seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 166CE707252B068400E70477 /* N5Seed.realm */; };
 		166FC8502521B83900F6F30E /* GrammarMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC84F2521B83900F6F30E /* GrammarMockCategory.swift */; };
 		166FC8522521B85E00F6F30E /* GrammarMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8512521B85E00F6F30E /* GrammarMock.swift */; };
 		166FC8542521CDCF00F6F30E /* KanjiQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC8532521CDCF00F6F30E /* KanjiQuiz.swift */; };
@@ -38,8 +36,7 @@
 		166FC85C252317BD00F6F30E /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC85B252317BD00F6F30E /* Conjugation.swift */; };
 		16787FCB252D8C98002C5E44 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCA252D8C98002C5E44 /* Counters.swift */; };
 		16787FCF252DAA9D002C5E44 /* GrammarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */; };
-		1678A2712527143C00EA14D0 /* KanjiMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */; };
-		167A3BE82525E8DD00D4AD53 /* N5Seed_bk.realm in Resources */ = {isa = PBXBuildFile; fileRef = 167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */; };
+		16787FD1252DC054002C5E44 /* N5Seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 16787FD0252DC054002C5E44 /* N5Seed.realm */; };
 		167AAA402511D8440051BAB1 /* KanjiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */; };
 		167AAA422511D8720051BAB1 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA412511D8720051BAB1 /* Kanji.swift */; };
 		167AAA482511E5F70051BAB1 /* FlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA472511E5F70051BAB1 /* FlashcardController.swift */; };
@@ -75,8 +72,6 @@
 		16650AFA25133B30002726A1 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
 		16650AFB25133B31002726A1 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		16650B0125134BED002726A1 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
-		1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed_bkk.realm; sourceTree = "<group>"; };
-		166CE707252B068400E70477 /* N5Seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed.realm; sourceTree = "<group>"; };
 		166FC84F2521B83900F6F30E /* GrammarMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarMockCategory.swift; sourceTree = "<group>"; };
 		166FC8512521B85E00F6F30E /* GrammarMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarMock.swift; sourceTree = "<group>"; };
 		166FC8532521CDCF00F6F30E /* KanjiQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiQuiz.swift; sourceTree = "<group>"; };
@@ -86,8 +81,8 @@
 		166FC85B252317BD00F6F30E /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
 		16787FCA252D8C98002C5E44 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarHeader.swift; sourceTree = "<group>"; };
+		16787FD0252DC054002C5E44 /* N5Seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed.realm; sourceTree = "<group>"; };
 		1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KanjiMockCategory.swift; path = "/Users/naoyaono/Documents/JLPTN5 Study/JLPTN5 Study/Model/KanjiMockCategory.swift"; sourceTree = "<absolute>"; };
-		167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed_bk.realm; sourceTree = "<group>"; };
 		167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiCategory.swift; sourceTree = "<group>"; };
 		167AAA412511D8720051BAB1 /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
 		167AAA472511E5F70051BAB1 /* FlashcardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardController.swift; sourceTree = "<group>"; };
@@ -184,9 +179,7 @@
 		167A3BE62525E8C100D4AD53 /* Seed */ = {
 			isa = PBXGroup;
 			children = (
-				166CE707252B068400E70477 /* N5Seed.realm */,
-				167A3BE72525E8DD00D4AD53 /* N5Seed_bk.realm */,
-				1666E67F2528561C003EDBC0 /* N5Seed_bkk.realm */,
+				16787FD0252DC054002C5E44 /* N5Seed.realm */,
 			);
 			path = Seed;
 			sourceTree = "<group>";
@@ -310,11 +303,9 @@
 				16650B0025133B31002726A1 /* Quicksand-Medium.ttf in Resources */,
 				16A9BE6D2506031000BA1A09 /* Assets.xcassets in Resources */,
 				16A9BE6B2506030900BA1A09 /* Main.storyboard in Resources */,
-				1666E6802528561C003EDBC0 /* N5Seed_bkk.realm in Resources */,
+				16787FD1252DC054002C5E44 /* N5Seed.realm in Resources */,
 				165F8849251A141E00CFE992 /* Colors.xcassets in Resources */,
 				16650AFE25133B31002726A1 /* Quicksand-Light.ttf in Resources */,
-				167A3BE82525E8DD00D4AD53 /* N5Seed_bk.realm in Resources */,
-				166CE708252B068500E70477 /* N5Seed.realm in Resources */,
 				16650AFC25133B31002726A1 /* Quicksand-Regular.ttf in Resources */,
 				16650AFF25133B31002726A1 /* Quicksand-SemiBold.ttf in Resources */,
 				16650AFD25133B31002726A1 /* Quicksand-Bold.ttf in Resources */,
@@ -397,7 +388,6 @@
 				167AAA4C251210710051BAB1 /* ListController.swift in Sources */,
 				166FC8582523143200F6F30E /* GrammarCategory.swift in Sources */,
 				1660EA7F250F6651001CA5D7 /* QuizMenuController.swift in Sources */,
-				1678A2712527143C00EA14D0 /* KanjiMockCategory.swift in Sources */,
 				16628FEA2510AAD800769C56 /* QuizResultController.swift in Sources */,
 				166FC8562521D1CF00F6F30E /* KanjiQuizMode.swift in Sources */,
 				167AAA422511D8720051BAB1 /* Kanji.swift in Sources */,
@@ -546,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -553,10 +544,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naoya-ono.JLPTN5-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -566,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -573,10 +566,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naoya-ono.JLPTN5-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -24,7 +24,7 @@ class QuizController: UIViewController {
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var timeLimitToggle: UIBarButtonItem!
     @IBOutlet weak var resultImage: UIImageView!
-        
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     //前の画面から受け取る値
@@ -57,7 +57,7 @@ class QuizController: UIViewController {
         
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
-
+        
         
         navigationController?.delegate = self
         
@@ -97,7 +97,6 @@ class QuizController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("クイズを開始します")
         
         // 枠から文字が飛び出さないように
         questionLabel.adjustsFontSizeToFitWidth = true
@@ -121,30 +120,30 @@ class QuizController: UIViewController {
     
     // バナー広告読み込み
     override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      loadBannerAd()
+        super.viewDidAppear(animated)
+        loadBannerAd()
     }
     
     override func viewWillTransition(to size: CGSize,
-                            with coordinator: UIViewControllerTransitionCoordinator) {
-      super.viewWillTransition(to:size, with:coordinator)
-      coordinator.animate(alongsideTransition: { _ in
-        self.loadBannerAd()
-      })
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to:size, with:coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.loadBannerAd()
+        })
     }
     
     func loadBannerAd() {
-      let frame = { () -> CGRect in
-        if #available(iOS 11.0, *) {
-          return view.frame.inset(by: view.safeAreaInsets)
-        } else {
-          return view.frame
-        }
-      }()
-      let viewWidth = frame.size.width
-
-      bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-      bannerView.load(GADRequest())
+        let frame = { () -> CGRect in
+            if #available(iOS 11.0, *) {
+                return view.frame.inset(by: view.safeAreaInsets)
+            } else {
+                return view.frame
+            }
+        }()
+        let viewWidth = frame.size.width
+        
+        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        bannerView.load(GADRequest())
     }
     
     // タイマー更新
@@ -160,7 +159,6 @@ class QuizController: UIViewController {
         
         // 時間が0になったら
         if timeLimitBar.progress == 0.0 {
-            print("0秒になったのでタイマーを停止")
             self.timer?.invalidate() // タイマー停止
             
             self.userChoices.append("")
@@ -223,16 +221,14 @@ class QuizController: UIViewController {
     }
     
     @IBAction func timerOnOffButtonPressde(_ sender: UIBarButtonItem) {
-        print("タイマーON / OFF切り替え")
-        
         if self.isTimerAcctive {
-            print("タイマーを停止")
+            // タイマー停止
             self.timer?.invalidate()
             self.isTimerAcctive = false
             self.timeLimitToggle.image = UIImage(named: "play-icon")
             
         }else {
-            print("タイマーを起動")
+            // タイマー起動
             updateTimeLimit()
             self.isTimerAcctive = true
             self.timeLimitToggle.image = UIImage(named: "stop-icon")
@@ -242,39 +238,30 @@ class QuizController: UIViewController {
     
     // クイズ問題を生成する
     func createQuiz(){
-        print("クイズを作成開始")
         maxQuizNum = 10
-                
+        
         if type == 0 {
             for vocabulary in vocabularyList! {
                 list.append([vocabulary.english, vocabulary.japanese, vocabulary.sound])
             }
-                        
+            
             //　問題を１０問作成
             for i in 0..<10 {
-                print(i)
-                
                 // 単語一覧からランダムに４問取得
                 let quizList = list.choose(4)
-                print(quizList)
                 
                 // クイズモードをチェック
                 if quizMode == 0 {
-                    print("英語 ▶︎ 日本語")
                     // 配列の先頭を答えにする
                     questions.append(quizList[0][0]) // 問題（英語）
                     answers.append(quizList[0][1]) // 答え（日本語）
                     sounds.append(quizList[0][2]) // 問題の音声（日本語）
                     choices.append([quizList[0][1], quizList[1][1], quizList[2][1], quizList[3][1]]) //選択肢 (日本語)
-                    print("シャッフル前")
-                    print(choices[i])
+                    
                     choices[i].shuffle() // 選択肢をシャッフルする
-                    print("シャッフル後")
-                    print(choices[i])
                 }
                     
                 else if quizMode == 1 {
-                    print("日本語 ▶︎ 英語")
                     // 配列の先頭を答えにする
                     questions.append(quizList[0][1]) // 問題（日本語）
                     answers.append(quizList[0][0]) // 答え（英語）
@@ -288,7 +275,6 @@ class QuizController: UIViewController {
                 }
             }
         } else if type == 1 {
-            print("漢字問題を作成")
             // 配列に問題集を対比
             var KanjiQuizList = [KanjiQuiz]()
             for kanjiQuiz in kanjiList! {
@@ -297,46 +283,30 @@ class QuizController: UIViewController {
             
             // 漢字リストをシャッフル
             KanjiQuizList.shuffle()
-
+            
             if KanjiQuizList.count >= 10 {
                 maxQuizNum = 10
             } else {
                 maxQuizNum = KanjiQuizList.count
             }
             
-            print(maxQuizNum)
-            
             // 出題する問題を作成する（max 10問）
             for i in 0..<maxQuizNum {
-                print(i)
-                
                 // シャッフル済みのリストから１問取得
                 let quiz = KanjiQuizList[i]
-                print(quiz)
                 
                 questions.append(quiz.question) // 問題
                 answers.append(quiz.answer) // 答え
                 choices.append([quiz.answer, quiz.wrong1, quiz.wrong2, quiz.wrong3]) //選択肢
                 
                 //選択肢をシャッフル
-                print("シャッフル前")
-                print(choices[i])
                 choices[i].shuffle() // 選択肢をシャッフルする
-                print("シャッフル後")
-                print(choices[i])
             }
-            
         }
-        
-        print("listの値")
-        print(list)
-        
     }
     
     // クイズ問題を画面にセットする
     @objc func setQuiz(){
-        print("setQuizが呼ばれた")
-        
         // ナビゲーションタイトルに問題番号をセット
         title = String(questionNumber + 1) + " / " + String(maxQuizNum)
         
@@ -363,7 +333,7 @@ class QuizController: UIViewController {
         answerButtonB.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
         answerButtonC.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
         answerButtonD.setTitleColor(UIColor(named: "quizButtonTextColor"), for: .normal)
-
+        
         
         // ボタンの色を設定する
         answerButtonA.backgroundColor = UIColor(named: "quizButtonColor")
@@ -388,8 +358,6 @@ class QuizController: UIViewController {
     
     // 選択肢がタップされた時の処理
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        print("答えをチェックします。")
-        
         // タイマーを停止
         self.timer?.invalidate()
         
@@ -399,7 +367,6 @@ class QuizController: UIViewController {
         
         // 正解の場合
         if userAnswer == answers[questionNumber]{
-            print("正解")
             playSound(name: "correct_sound")
             
             // 正解画像を表示
@@ -441,7 +408,6 @@ class QuizController: UIViewController {
             }
             
         } else {
-            print("不正解")
             playSound(name: "incorrect_sound")
             
             // 不正解の画像を表示
@@ -516,15 +482,11 @@ class QuizController: UIViewController {
     
     
     @IBAction func soundButtonPressed(_ sender: UIButton) {
-        print("音を鳴らす")
-        print(sounds[questionNumber])
         playSound(name: sounds[questionNumber])
-        
     }
     
     // 結果ページへ移動
     @objc func moveResultPage(){
-        print("結果ページへ移動")
         performSegue(withIdentifier: "goToQuizResultPage",sender: nil)
     }
     
@@ -594,8 +556,6 @@ extension QuizController: AVAudioPlayerDelegate {
     
     // 音を鳴らす処理
     func playSound(name: String){
-        print("音を鳴らす処理")
-        
         // 音声ファイルの取得
         guard let soundFile = NSDataAsset(name: name) else {
             print("音源ファイルが見つかりません1")
@@ -613,7 +573,6 @@ extension QuizController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         if viewController is QuizMenuController {
-            print("タイマー停止")
             // タイマーを停止
             self.timer?.invalidate()
         }

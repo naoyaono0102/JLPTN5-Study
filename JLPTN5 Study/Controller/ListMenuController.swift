@@ -55,11 +55,11 @@ class ListMenuController: UIViewController {
         let realm = try! Realm()
         
         if type == 0 {
-            print("語彙を取得")
+            // 語彙
             vocabularyCategories = realm.objects(VocabularyCategory.self).sorted(byKeyPath: "order", ascending: true)
             
         } else if type == 1 {
-            print("漢字を取得")
+            // 漢字
             kanjiCategories = realm.objects(KanjiCategory.self).sorted(byKeyPath: "order", ascending: true)
         }
     }
