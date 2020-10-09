@@ -57,7 +57,7 @@ class MockExamController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
         bannerView.rootViewController = self
         
         navigationController?.delegate = self

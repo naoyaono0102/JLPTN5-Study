@@ -68,7 +68,7 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
     // インタースティシャル広告を作成し読み込む
     func createAndLoadInterstitial() -> GADInterstitial {
         
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-4166043434922569/5616368193")
         interstitial.delegate = self
         interstitial.load(GADRequest())
         return interstitial

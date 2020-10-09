@@ -22,14 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // アプリで使用するdefault.realmのパスを取得
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
-        print(defaultRealmPath)
         
         // 初期データが入ったRealmファイルのパスを取得
         let bundleRealmPath = Bundle.main.url(forResource: "N5Seed", withExtension: "realm")
 
         // アプリで使用するRealmファイルが存在しない（= 初回利用）場合は、シードファイルをコピーする
         if !FileManager.default.fileExists(atPath: defaultRealmPath.path) {
-            print("seedファイルをコピーします")
           do {
             try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)
           } catch let error {
