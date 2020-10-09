@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pAJ-xs-E2u">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1852,6 +1853,7 @@
                         <outlet property="backButton" destination="hiw-Fx-6v6" id="iDi-rW-i3D"/>
                         <outlet property="bannerView" destination="N5r-HO-lAW" id="D3Y-Tm-2KE"/>
                         <outlet property="buttonGroupView" destination="XiH-fO-O7N" id="L7H-U1-dwz"/>
+                        <outlet property="cardNumberLabel" destination="oew-D8-aDx" id="q62-V6-Ik2"/>
                         <outlet property="kolodaResultButtonGroupView" destination="URZ-y4-tle" id="vrt-NW-knX"/>
                         <outlet property="kolodaResultTitleView" destination="cIe-F9-AvS" id="lKH-TC-5wK"/>
                         <outlet property="kolodaView" destination="qaI-HV-d2R" id="3Ej-gq-MBi"/>
@@ -1864,6 +1866,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FG-ZD-Aiv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oew-D8-aDx">
+                    <rect key="frame" x="0.0" y="0.0" width="141" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </objects>
             <point key="canvasLocation" x="2444.9275362318845" y="-942.1875"/>
         </scene>

@@ -23,8 +23,6 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     var vocabularyList: List<Vocabulary>?
     var kanjiList: List<Kanji>?
     var grammarType: Int? // 0：活用、1：文型パターン
-    var uiLabelPointer = 0 // SubViewに格納されているUILabelが何番目かを表す
-    
     var audioPlayer: AVAudioPlayer! // 音声出力用
     var list = [[String]]() // 問題を格納するための配列
     private var cardNumber = 0 // カード番号
@@ -45,10 +43,11 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var resultLabel: UILabel!    
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var cardNumberLabel: UILabel! // カード番号（画面右上表示用）
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
         bannerView.rootViewController = self
         
@@ -257,20 +256,29 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     
     // 初期化
     func initView(){
-        
+                        
         // 音声ボタンを非表示に（時期バージョンで対応）
         soundButton.isHidden = true
         
         // ナビゲーションの右上にラベルをセット
         if let navigationBar = self.navigationController?.navigationBar {
-            let labelSize = CGRect(x: view.frame.size.width - 70 , y: 0, width: 70.0, height: navigationBar.frame.height)
-            
-            let label = UILabel(frame: labelSize)
-            label.textColor = UIColor.white
-            label.text = "1"
-            label.textAlignment = NSTextAlignment.center
-            navigationBar.addSubview(label)
+            self.cardNumberLabel.frame = CGRect(x: view.frame.size.width - 70 , y: 0, width: 70.0, height: navigationBar.frame.height)
+            self.cardNumberLabel.textColor = UIColor.white
+            self.cardNumberLabel.textAlignment = NSTextAlignment.center
+            navigationBar.addSubview(self.cardNumberLabel)
         }
+        
+        
+        // ナビゲーションの右上にラベルをセット
+//        if let navigationBar = self.navigationController?.navigationBar {
+//            let labelSize = CGRect(x: view.frame.size.width - 70 , y: 0, width: 70.0, height: navigationBar.frame.height)
+//
+//            let label = UILabel(frame: labelSize)
+//            label.textColor = UIColor.white
+//            label.text = "1"
+//            label.textAlignment = NSTextAlignment.center
+//            navigationBar.addSubview(label)
+//        }
         
         // プログレスバーの設定
         updateProgress()
@@ -285,7 +293,7 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
         //        }
         
         // UILabelの配列番号を確認
-        searchUILabelFromSubViews()
+//        searchUILabelFromSubViews()
         
         // koloda Viewの設定
         kolodaView.dataSource = self
@@ -330,20 +338,9 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     
     // クイズ番号の更新
     func updateQuizNumber(){
-        (self.navigationController?.navigationBar.subviews[uiLabelPointer] as! UILabel).text = String(cardNumber + 1) + " / " + String(totalCardNumber!)
-        
+        self.cardNumberLabel.text = String(cardNumber + 1) + " / " + String(totalCardNumber!)
     }
     
-    // SuvViewの中からUILabelを探す
-    func searchUILabelFromSubViews(){
-        for subView in (self.navigationController?.navigationBar.subviews)! {
-            if subView.isKind(of: NSClassFromString("UILabel")!) {
-                break
-            } else {
-                self.uiLabelPointer = self.uiLabelPointer + 1
-            }
-        }
-    }
     
     // プログレスバーの更新
     func updateProgress(){
