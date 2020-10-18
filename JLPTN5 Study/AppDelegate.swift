@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // アプリで使用するdefault.realmのパスを取得
         let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
+        print(defaultRealmPath)
         
         // 初期データが入ったRealmファイルのパスを取得
         let bundleRealmPath = Bundle.main.url(forResource: "N5Seed", withExtension: "realm")
@@ -30,8 +31,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !FileManager.default.fileExists(atPath: defaultRealmPath.path) {
           do {
             try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)
+            UserDefaults.standard.set(1.0, forKey: "seedVersion")
           } catch let error {
               print("error: \(error)")
+            }
+        } else {
+            // バージョンがアップしている場合はSeedデータを入れ替える
+            if UserDefaults.standard.float(forKey: "seedVersion") < 1.0 {
+                print("Seedファイルが古いため新しいデータをコピーします")
+                let realmURLs = [
+                    defaultRealmPath,
+                    defaultRealmPath.appendingPathExtension("lock"),
+                    defaultRealmPath.appendingPathExtension("note"),
+                    defaultRealmPath.appendingPathExtension("management")
+                ]
+                                
+                // 削除
+                for URL in realmURLs {
+                  do {
+                    try FileManager.default.removeItem(at: URL)
+                  } catch {
+                    print("error: \(error)")
+                  }
+                }
+                                
+                // 最新のものをコピー
+                do {
+                  try FileManager.default.copyItem(at: bundleRealmPath!, to: defaultRealmPath)
+                } catch let error {
+                    print("error: \(error)")
+                  }
+                
+                // seedVersionを更新する
+                UserDefaults.standard.set(1.0, forKey: "seedVersion")
             }
         }
         
@@ -45,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Realmマイグレーション処理
     func migration() {
       // 次のバージョン（現バージョンが０なので、１をセット）
-        let nextSchemaVersion:UInt64 = 4
+        let nextSchemaVersion:UInt64 = 5
 
       // マイグレーション設定
       let config = Realm.Configuration(

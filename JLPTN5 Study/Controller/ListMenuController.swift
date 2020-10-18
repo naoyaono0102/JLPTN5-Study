@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import GoogleMobileAds
 
 class ListMenuController: UIViewController {
 
@@ -24,15 +23,10 @@ class ListMenuController: UIViewController {
     // カテゴリー一覧
     var vocabularyCategories: Results<VocabularyCategory>?
     var kanjiCategories: Results<KanjiCategory>?
-        
-    @IBOutlet weak var bannerView: GADBannerView!
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
-        bannerView.rootViewController = self
-                
+                        
         initView()
         
         // 語彙or漢字一覧を取得
@@ -62,34 +56,6 @@ class ListMenuController: UIViewController {
             // 漢字
             kanjiCategories = realm.objects(KanjiCategory.self).sorted(byKeyPath: "order", ascending: true)
         }
-    }
-
-    // バナー広告読み込み
-    override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      loadBannerAd()
-    }
-    
-    override func viewWillTransition(to size: CGSize,
-                            with coordinator: UIViewControllerTransitionCoordinator) {
-      super.viewWillTransition(to:size, with:coordinator)
-      coordinator.animate(alongsideTransition: { _ in
-        self.loadBannerAd()
-      })
-    }
-    
-    func loadBannerAd() {
-      let frame = { () -> CGRect in
-        if #available(iOS 11.0, *) {
-          return view.frame.inset(by: view.safeAreaInsets)
-        } else {
-          return view.frame
-        }
-      }()
-      let viewWidth = frame.size.width
-
-      bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-      bannerView.load(GADRequest())
     }
 }
 

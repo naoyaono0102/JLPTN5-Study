@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class TopMenuController: UIViewController {
     
@@ -28,14 +27,9 @@ class TopMenuController: UIViewController {
     
     // クイズのタイプ（語彙・漢字）
     private var type: Int? // 0：語彙、1：漢字、2：文法
-    
-    @IBOutlet weak var bannerView: GADBannerView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
-        bannerView.rootViewController = self
         
         initView()
     }
@@ -50,34 +44,6 @@ class TopMenuController: UIViewController {
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.3 // 影の濃さ
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 1.0, height: 1.0) // 影の方向
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadBannerAd()
-    }
-    
-    override func viewWillTransition(to size: CGSize,
-                                     with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to:size, with:coordinator)
-        coordinator.animate(alongsideTransition: { _ in
-            self.loadBannerAd()
-        })
-    }
-    
-    func loadBannerAd() {
-        let frame = { () -> CGRect in
-            if #available(iOS 11.0, *) {
-                return view.frame.inset(by: view.safeAreaInsets)
-            } else {
-                return view.frame
-            }
-        }()
-        let viewWidth = frame.size.width
-        
-        bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-        bannerView.load(GADRequest())
-    }
-    
 }
 
 

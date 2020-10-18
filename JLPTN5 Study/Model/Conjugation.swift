@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class Conjugation: Object {
+    @objc dynamic var english: String = ""
     @objc dynamic var naiForm: String = ""
     @objc dynamic var masuForm: String = ""
     @objc dynamic var jishoForm: String = ""

@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 import AVFoundation
-import GoogleMobileAds
 
 class ListController: UIViewController {
 
@@ -26,15 +25,10 @@ class ListController: UIViewController {
     var vocabularyList: VocabularyCategory?
     var kanjiList: KanjiCategory?
     var grammarList: Results<GrammarList>?
-        
-    @IBOutlet weak var bannerView: GADBannerView!
-    
+            
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
-        bannerView.rootViewController = self
-        
+                
         initView()
         
         if self.type == 2 {
@@ -58,33 +52,6 @@ class ListController: UIViewController {
     func loadGrammarData() {
         let realm = try! Realm()
         grammarList = realm.objects(GrammarList.self)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      loadBannerAd()
-    }
-    
-    override func viewWillTransition(to size: CGSize,
-                            with coordinator: UIViewControllerTransitionCoordinator) {
-      super.viewWillTransition(to:size, with:coordinator)
-      coordinator.animate(alongsideTransition: { _ in
-        self.loadBannerAd()
-      })
-    }
-    
-    func loadBannerAd() {
-      let frame = { () -> CGRect in
-        if #available(iOS 11.0, *) {
-          return view.frame.inset(by: view.safeAreaInsets)
-        } else {
-          return view.frame
-        }
-      }()
-      let viewWidth = frame.size.width
-
-      bannerView.adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-      bannerView.load(GADRequest())
     }
 }
 

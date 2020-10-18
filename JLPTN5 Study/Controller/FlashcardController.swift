@@ -47,7 +47,7 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+
         bannerView.adUnitID = "ca-app-pub-4166043434922569/7627970789"
         bannerView.rootViewController = self
         
@@ -120,39 +120,39 @@ class FlashcardController: UIViewController, GADInterstitialDelegate {
             case "nai form":
                 if quizMode == 0 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.masuForm, conjugation.naiForm, ""])
+                        self.list.append([conjugation.masuForm, conjugation.naiForm, "", conjugation.english])
                     }
                 } else if quizMode == 1 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.jishoForm, conjugation.naiForm, ""])
+                        self.list.append([conjugation.jishoForm, conjugation.naiForm, "", conjugation.english])
                     }
                 }
             case "masu form":
                 for conjugation in conjugationList {
-                    self.list.append([conjugation.jishoForm, conjugation.masuForm, ""])
+                    self.list.append([conjugation.jishoForm, conjugation.masuForm, "", conjugation.english])
                 }
             case "dictionary form":
                 for conjugation in conjugationList {
-                    self.list.append([conjugation.masuForm, conjugation.jishoForm, ""])
+                    self.list.append([conjugation.masuForm, conjugation.jishoForm, "", conjugation.english])
                 }
             case "Te form":
                 if quizMode == 0 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.masuForm, conjugation.teForm, ""])
+                        self.list.append([conjugation.masuForm, conjugation.teForm, "", conjugation.english])
                     }
                 } else if quizMode == 1 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.jishoForm, conjugation.teForm, ""])
+                        self.list.append([conjugation.jishoForm, conjugation.teForm, "", conjugation.english])
                     }
                 }
             case "Ta form":
                 if quizMode == 0 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.masuForm, conjugation.taForm, ""])
+                        self.list.append([conjugation.masuForm, conjugation.taForm, "", conjugation.english])
                     }
                 } else if quizMode == 1 {
                     for conjugation in conjugationList {
-                        self.list.append([conjugation.jishoForm, conjugation.taForm, ""])
+                        self.list.append([conjugation.jishoForm, conjugation.taForm, "", conjugation.english])
                     }
                 }
             default:
@@ -540,12 +540,19 @@ extension FlashcardController: KolodaViewDataSource {
         
         // テキストが長い場合は複数行に
         cardView.titleLabel!.numberOfLines = 3
-        cardView.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 32) // カスタムフォント
         cardView.titleLabel?.adjustsFontSizeToFitWidth = true // フォントサイズの自動調整
         
-        // カードの表にテキストをセット
-        cardView.setTitle(list[index][0], for: .normal) // 追加
-        
+        //　「文法」かつ「動詞の活用の場合」
+        if grammarType == 0, type == 2 {
+            cardView.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 28) // カスタムフォント
+            cardView.setTitle(list[index][0] + "\n" + list[index][3] , for: .normal) // 改行して下に英訳を追加
+            cardView.titleLabel?.textAlignment = NSTextAlignment.center // 中央寄せ
+
+        } else {
+            cardView.titleLabel?.font = UIFont(name: "Quicksand-Bold", size: 32) // カスタムフォント
+            cardView.setTitle(list[index][0], for: .normal) // カードの表にテキストをセット
+        }
+                        
         // タップされたときのaction（flip）
         cardView.addTarget(self,
                            action: #selector(flip( _:)),
@@ -569,9 +576,14 @@ extension FlashcardController: KolodaViewDataSource {
         } else { //　カードが裏なら
             isFront = true
             
-            // カード表の値をセットする
-            (sender as AnyObject).setTitle(self.list[kolodaView.currentCardIndex][0], for: .normal)
-            
+            //　「文法」かつ「動詞の活用の場合」
+            if grammarType == 0, type == 2 {
+                (sender as AnyObject).setTitle(self.list[kolodaView.currentCardIndex][0] + "\n" + list[kolodaView.currentCardIndex][3], for: .normal)
+
+            } else {
+                (sender as AnyObject).setTitle(self.list[kolodaView.currentCardIndex][0], for: .normal)
+            }
+                        
             // ひっくり返すアニメーション
             UIView.transition(with: sender as! UIView, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }

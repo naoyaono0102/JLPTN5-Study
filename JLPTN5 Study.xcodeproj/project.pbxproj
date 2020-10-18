@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		164B41A7253C5DE700C0D3F2 /* N5Seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 164B41A6253C5DE700C0D3F2 /* N5Seed.realm */; };
 		165F883B2519C4BB00CFE992 /* MockExamMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F883A2519C4BB00CFE992 /* MockExamMenuController.swift */; };
 		165F883D2519CDFC00CFE992 /* MockExamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F883C2519CDFC00CFE992 /* MockExamController.swift */; };
 		165F88412519D0A200CFE992 /* KanjiMockCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F88402519D0A200CFE992 /* KanjiMockCategory.swift */; };
@@ -36,7 +37,6 @@
 		166FC85C252317BD00F6F30E /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166FC85B252317BD00F6F30E /* Conjugation.swift */; };
 		16787FCB252D8C98002C5E44 /* Counters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCA252D8C98002C5E44 /* Counters.swift */; };
 		16787FCF252DAA9D002C5E44 /* GrammarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */; };
-		16787FD1252DC054002C5E44 /* N5Seed.realm in Resources */ = {isa = PBXBuildFile; fileRef = 16787FD0252DC054002C5E44 /* N5Seed.realm */; };
 		167AAA402511D8440051BAB1 /* KanjiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */; };
 		167AAA422511D8720051BAB1 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA412511D8720051BAB1 /* Kanji.swift */; };
 		167AAA482511E5F70051BAB1 /* FlashcardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167AAA472511E5F70051BAB1 /* FlashcardController.swift */; };
@@ -48,10 +48,12 @@
 		16A9BE6B2506030900BA1A09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE692506030900BA1A09 /* Main.storyboard */; };
 		16A9BE6D2506031000BA1A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE6C2506031000BA1A09 /* Assets.xcassets */; };
 		16A9BE702506031000BA1A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16A9BE6E2506031000BA1A09 /* LaunchScreen.storyboard */; };
+		16F5F4412535C89E00A2E82D /* N5Seed_1.realm in Resources */ = {isa = PBXBuildFile; fileRef = 16F5F43C2535C74B00A2E82D /* N5Seed_1.realm */; };
 		BF19C14340575410CA3E965C /* Pods_JLPTN5_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85D17250A68821C245EB2B9 /* Pods_JLPTN5_Study.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		164B41A6253C5DE700C0D3F2 /* N5Seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed.realm; sourceTree = "<group>"; };
 		165F883A2519C4BB00CFE992 /* MockExamMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamMenuController.swift; sourceTree = "<group>"; };
 		165F883C2519CDFC00CFE992 /* MockExamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExamController.swift; sourceTree = "<group>"; };
 		165F88402519D0A200CFE992 /* KanjiMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KanjiMockCategory.swift; path = "/Users/naoyaono/Documents/JLPTN5 Study/JLPTN5 Study/Model/KanjiMockCategory.swift"; sourceTree = "<absolute>"; };
@@ -81,7 +83,6 @@
 		166FC85B252317BD00F6F30E /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
 		16787FCA252D8C98002C5E44 /* Counters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counters.swift; sourceTree = "<group>"; };
 		16787FCE252DAA9D002C5E44 /* GrammarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarHeader.swift; sourceTree = "<group>"; };
-		16787FD0252DC054002C5E44 /* N5Seed.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed.realm; sourceTree = "<group>"; };
 		1678A2702527143C00EA14D0 /* KanjiMockCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KanjiMockCategory.swift; path = "/Users/naoyaono/Documents/JLPTN5 Study/JLPTN5 Study/Model/KanjiMockCategory.swift"; sourceTree = "<absolute>"; };
 		167AAA3F2511D8440051BAB1 /* KanjiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiCategory.swift; sourceTree = "<group>"; };
 		167AAA412511D8720051BAB1 /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		16A9BE6C2506031000BA1A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16A9BE6F2506031000BA1A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16A9BE712506031000BA1A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16F5F43C2535C74B00A2E82D /* N5Seed_1.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = N5Seed_1.realm; sourceTree = "<group>"; };
 		53543D4C21AD6ACB6F713C68 /* Pods-JLPTN5 Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLPTN5 Study.release.xcconfig"; path = "Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study.release.xcconfig"; sourceTree = "<group>"; };
 		55A918F3A6DC2B26E5ACC3EA /* Pods-JLPTN5 Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLPTN5 Study.debug.xcconfig"; path = "Target Support Files/Pods-JLPTN5 Study/Pods-JLPTN5 Study.debug.xcconfig"; sourceTree = "<group>"; };
 		D85D17250A68821C245EB2B9 /* Pods_JLPTN5_Study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLPTN5_Study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,7 +181,8 @@
 		167A3BE62525E8C100D4AD53 /* Seed */ = {
 			isa = PBXGroup;
 			children = (
-				16787FD0252DC054002C5E44 /* N5Seed.realm */,
+				16F5F43C2535C74B00A2E82D /* N5Seed_1.realm */,
+				164B41A6253C5DE700C0D3F2 /* N5Seed.realm */,
 			);
 			path = Seed;
 			sourceTree = "<group>";
@@ -298,12 +301,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F5F4412535C89E00A2E82D /* N5Seed_1.realm in Resources */,
 				16A9BE702506031000BA1A09 /* LaunchScreen.storyboard in Resources */,
 				16650B0225134BED002726A1 /* Sounds.xcassets in Resources */,
 				16650B0025133B31002726A1 /* Quicksand-Medium.ttf in Resources */,
 				16A9BE6D2506031000BA1A09 /* Assets.xcassets in Resources */,
+				164B41A7253C5DE700C0D3F2 /* N5Seed.realm in Resources */,
 				16A9BE6B2506030900BA1A09 /* Main.storyboard in Resources */,
-				16787FD1252DC054002C5E44 /* N5Seed.realm in Resources */,
 				165F8849251A141E00CFE992 /* Colors.xcassets in Resources */,
 				16650AFE25133B31002726A1 /* Quicksand-Light.ttf in Resources */,
 				16650AFC25133B31002726A1 /* Quicksand-Regular.ttf in Resources */,
@@ -538,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.2.0;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -546,7 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naoya-ono.JLPTN5-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -560,7 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.2.0;
 				DEVELOPMENT_TEAM = TC3A67V5QR;
 				INFOPLIST_FILE = "JLPTN5 Study/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -568,7 +572,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naoya-ono.JLPTN5-Study";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

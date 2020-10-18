@@ -143,7 +143,8 @@ class FlashCardMenuController: UIViewController, GADInterstitialDelegate {
             let conjugations = grammarCategories.filter("type == 0")
             let patterns = grammarCategories.filter("type == 1")
             let counters = grammarCategories.filter("type == 2")
-            self.grammarCategories = [patterns,conjugations,counters]
+            let keigo = grammarCategories.filter("type == 3")
+            self.grammarCategories = [patterns,conjugations,counters, keigo]
         }
     }
     
